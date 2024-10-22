@@ -9,7 +9,10 @@ function App() {
   return (
     <div className="w-full h-[100dvh] bg-gray-500">
       <Canvas>
-        <primitive object={scene} />
+        <ambientLight intensity={1} />
+        <directionalLight position={[10, 10, 10]} intensity={1} />
+
+        <primitive object={scene} rotation={[6.7, -Math.PI / 4, 0]} />
       </Canvas>
     </div>
   );
