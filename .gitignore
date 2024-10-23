@@ -25,5 +25,4 @@ dist-ssr
 
 
 # Models
-public/models/barbarian.glb
 public/models/barbarian_optimized.glb
