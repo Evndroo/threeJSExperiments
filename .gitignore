@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Models
+public/models/barbarian.glb
+public/models/barbarian_optimized.glb

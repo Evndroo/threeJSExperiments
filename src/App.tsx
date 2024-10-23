@@ -1,19 +1,9 @@
-import { Canvas, useLoader } from "@react-three/fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-
-const path = "/models/cube.glb";
+import { RotatingModel } from "./components/RotationModel";
 
 function App() {
-  const gltf = useLoader(GLTFLoader, path);
-
   return (
-    <div className="w-full h-[100dvh] bg-gray-500">
-      <Canvas>
-        <ambientLight intensity={1} />
-        <directionalLight position={[10, 10, 10]} intensity={1} />
-
-        <primitive object={gltf.scene} rotation={[6.7, -Math.PI / 4, 0]} />
-      </Canvas>
+    <div className="w-full h-[100dvh] bg-gray-400">
+      <RotatingModel gltfPath="/models/cube.glb" />
     </div>
   );
 }
