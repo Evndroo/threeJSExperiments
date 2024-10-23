@@ -8,6 +8,7 @@ interface Props {
 }
 
 export function RotatingModel({ gltfPath }: Props) {
+  const [isLoading, setIsLoading] = useState(true);
   const gltf = useLoader(GLTFLoader, gltfPath);
   const meshRef = useRef<THREE.Group | null>(null);
 
@@ -72,9 +73,9 @@ export function RotatingModel({ gltfPath }: Props) {
 
   return (
     <div
-      className={`h-full w-full ${
+      className={`h-full w-full relative ${
         isDragging ? "cursor-grabbing" : "cursor-grab"
-      }`}
+      } ${isLoading ? "cursor-default" : ""}`}
     >
       <Canvas
         onPointerDown={handlePointerDown}
@@ -84,12 +85,20 @@ export function RotatingModel({ gltfPath }: Props) {
         <ambientLight intensity={1} />
         <directionalLight position={[10, 10, 10]} intensity={1} />
         <primitive
-          className="transition-all duration-1000"
           ref={meshRef}
           object={gltf.scene}
           rotation={initialRotation.current}
+          onUpdate={() => setIsLoading(false)}
         />
       </Canvas>
+
+      {isLoading ? (
+        <div className="h-full flex items-center justify-center absolute top-0 left-0 w-full bg-gray-400">
+          <h1 className="text-center text-2xl w-full type-ellipsis">
+            Carregando
+          </h1>
+        </div>
+      ) : null}
     </div>
   );
 }

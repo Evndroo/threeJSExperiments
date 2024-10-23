@@ -11,15 +11,16 @@
   },
   "dependencies": {
     "@react-three/fiber": "^8.17.10",
-    "@types/three": "^0.169.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "tailwind-typewriter": "^1.0.1",
     "three": "^0.169.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
+    "@types/three": "^0.169.0",
     "@vitejs/plugin-react": "^4.3.2",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.11.1",
